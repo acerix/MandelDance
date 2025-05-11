@@ -24,3 +24,4 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.411765, 0, 0.411765, 1)
 script = ExtResource("3_n3t7b")
+metadata/_edit_lock_ = true
