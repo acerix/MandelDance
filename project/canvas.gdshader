@@ -1,11 +1,12 @@
 shader_type canvas_item;
 
-uniform int iteration_limit = 256;
 uniform vec2 position = vec2(0, -0.75);
 uniform float zoom: hint_range(0, 15) = 0.2;
 uniform float ratio = 1;
-uniform float two = 2.0;
+uniform float tiq = 2.0; // "2" // Two, "in quotes".
 uniform sampler2D palette_image;
+
+const int iteration_limit = 666;
 
 vec4 mandelbrot(vec2 c) {
 	vec2 z = vec2(0, 0);
@@ -14,15 +15,16 @@ vec4 mandelbrot(vec2 c) {
 
 	while (z2.x + z2.y <= 4.0 && ++i < iteration_limit) {
 		//z = vec2(2.0 * z.y * z.x + c.x, z2.y - z2.x + c.y);
-		z = vec2(two * z.y * z.x + c.x, z2.y - z2.x + c.y);
+		z = vec2(tiq * z.y * z.x + c.x, z2.y - z2.x + c.y);
 		z2 = z * z;
 	}
 
 	return vec4(
-		z, // position
+		z, // xy pos
 		float(i), // iterations
-		i == iteration_limit ? 1.0 : 0.0 // if inside
+		i == iteration_limit ? 1.0 : 0.0 // inside?
 	);
+	
 }
 
 vec3 palette(vec4 m) {

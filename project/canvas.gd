@@ -22,7 +22,7 @@ func _process(_delta):
 	var zoom = 0.2 * f1 * f2 * f3 * f4 + sin(delta) / 8
 	p.x = 0.5 * sin(theta / 101) * sin(theta / 103)
 	p.y = -0.75 + 0.5 * sin(theta / 101) * sin(theta / 104) + sin(theta) / 32
-	var two = 2.0 + tan(theta / 64)
-	$".".material.set("shader_parameter/position", p) 
+	var tiq = 2.0 + tan(theta / 64)
+	$".".material.set("shader_parameter/position", p)
 	$".".material.set("shader_parameter/zoom", zoom)
-	$".".material.set("shader_parameter/two", two)
+	$".".material.set("shader_parameter/tiq", tiq)
