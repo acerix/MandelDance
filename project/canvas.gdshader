@@ -24,7 +24,7 @@ vec4 mandelbrot(vec2 c) {
 		float(i), // iterations
 		i == iteration_limit ? 1.0 : 0.0 // inside?
 	);
-	
+
 }
 
 vec3 palette(vec4 m) {
