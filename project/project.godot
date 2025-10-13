@@ -11,13 +11,11 @@ config_version=5
 [application]
 
 config/name="MandelDance"
-config/version="0.0.3"
+config/version="0.4.0"
 config/tags=PackedStringArray("shader", "template")
 run/main_scene="res://canvas.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.411765, 0, 0.411765, 1)
-boot_splash/show_image=false
-boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/image="uid://bhehwn4m3du1j"
 config/icon="uid://bhehwn4m3du1j"
@@ -33,7 +31,7 @@ settings/physics_interpolation/enable_warnings=false
 [display]
 
 window/size/mode=4
-window/vsync/vsync_mode=0
+window/stretch/aspect="expand"
 
 [gui]
 

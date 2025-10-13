@@ -12,7 +12,7 @@ const target_bpm : float = 140
 # "seconds per beat" 
 const spb : float = 60 / target_bpm
 
-# position (translation of 
+# position (translation of canvas)
 var p = Vector2(0, -0.75)
 
 # time when the animation started
@@ -22,7 +22,10 @@ func _process(_delta):
 	var now = Time.get_unix_time_from_system()
 	
 	# time in seconds since the animation started
-	var t = now - start
+	#var t = now - start
+	
+	# time in seconds since the Epoch - sync animation with other devices
+	var t = now
 	
 	# "current angle in the beat/bar" (goes from zero when the beat starts, to 2π when the next beat starts)
 	var theta = 2 * PI * t / spb
@@ -34,17 +37,15 @@ func _process(_delta):
 	var f4 = 3 * sin(theta / 96)
 	
 	# vary zoom level
-	var zoom = 0.2 * (f1 + f2 + f3 + f4) / 2 + sin(t) / 8
+	var zoom = (f1 + f2 + f3 + f4) / 2 + sin(theta / 31) / 8
 	
 	# vary translation (centre position)
-	p.x = 0.5 * sin(theta / 101) * sin(theta / 103)
-	p.y = -0.75 + 0.5 * sin(theta / 101) * sin(theta / 104) + sin(theta) / 32
+	p.x = sin(theta / 101) * sin(theta / 103) / 2
+	p.y = -1 + sin(theta / 101) * sin(theta / 104) / 2 + sin(theta) / 32
 	
 	# vary the value of "²" in "z ↦ z²+c"
-	var tiq = 2.0 + tan(theta / 64)
-	
-	# 💗 stayin' alive
-	tiq = 4.5 + f1 + tan(f4)
+	#var tiq = 2 + f2 + tan(theta / 255) # 2.0 = mandelbrot set
+	var tiq = 4.5 + f2 + tan(theta / 128) # 4.5 = stayin' alive 💗
 	
 	# update shader params
 	$".".material.set("shader_parameter/position", p)
