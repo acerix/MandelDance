@@ -1,5 +1,5 @@
 # MandelDance
-Godot 4.4 example project to display a single fragment shader in full screen so it runs on all pixels of the display.
+Godot example project to display a single fragment shader in full screen so it runs on all pixels of the display.
 
 The example fragment shader renders the Mandelbrot set, framed around the "Buddhabrot" figure at the centre, and animated using GDScript.
 
@@ -7,6 +7,13 @@ The zoom and position of the plane are varied over time using trigonometric func
 
 # Demo
 [Web (HTML5) Export](https://acerix.github.io/MandelDance/) (requires WebGL)
+
+# Use in Godot Editor
+Download this repo and open <project/project.godot> in [Godot Editor](https://godotengine.org/download/).
+bash```
+git clone https://github.com/acerix/MandelDance.git
+godot ./MandelDance/project/project.godot
+```
 
 # Screenshot
 ![Screenshot of the initial rendering of MandelDance](/project/screenshot.png?raw=true "Initial rendering of MandelDance")
