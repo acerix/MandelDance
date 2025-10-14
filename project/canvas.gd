@@ -30,7 +30,7 @@ func _process(_delta):
 	# "current angle in the beat/bar" (goes from zero when the beat starts, to 2π when the next beat starts)
 	var theta = 2 * PI * t / spb
 	
-	# circular functions varying in time with the beat
+	# functions varying in time with the beat
 	var f1 = 0.7 * sin(theta / 4)
 	var f2 = 1.3 * sin(theta / 16)
 	var f3 = sin(theta / 7)
@@ -44,8 +44,8 @@ func _process(_delta):
 	p.y = -1 + sin(theta / 101) * sin(theta / 104) / 2 + sin(theta) / 32
 	
 	# vary the value of "²" in "z ↦ z²+c"
-	#var tiq = 2 + f2 + tan(theta / 255) # 2.0 = mandelbrot set
-	var tiq = 4.5 + f2 + tan(theta / 128) # 4.5 = stayin' alive 💗
+	var tiq = 2 + f2 + tan(theta / 255) # 2.0 = mandelbrot set
+	#var tiq = 4.5 + f2 + tan(theta / 128) # 4.5 = stayin' alive 💗
 	
 	# update shader params
 	$".".material.set("shader_parameter/position", p)

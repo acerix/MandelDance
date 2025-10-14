@@ -14,7 +14,8 @@ vec4 mandelbrot(vec2 c) {
 	int i = 0;
 
 	// z ↦ z²+c
-	while (z2.x + z2.y <= 4.0 && ++i < iteration_limit) {
+	while (z2.x + z2.y <= 4.0 && ++i < iteration_limit) {  // bail outside radius 2
+	// while (++i < iteration_limit) { // don't bail
 		z = vec2(
 			tiq * z.y * z.x + c.x,
 			z2.y - z2.x + c.y
