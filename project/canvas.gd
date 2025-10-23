@@ -47,10 +47,15 @@ func _process(_delta):
 	var tiq = 2 + f2 + tan(theta / 255) # 2.0 = mandelbrot set
 	#var tiq = 4.5 + f2 + tan(theta / 128) # 4.5 = stayin' alive 💗
 	
+	# vary the number of calculation iterations before bailing
+	var iteration_limit = 512 + roundi(512 * cos(theta / 256))
+	
 	# update shader params
 	$".".material.set("shader_parameter/position", p)
 	$".".material.set("shader_parameter/zoom", zoom)
 	$".".material.set("shader_parameter/tiq", tiq)
+	$".".material.set("shader_parameter/iteration_limit", iteration_limit)
 
 	#print('"2" = ', tiq)
+	#print('"its" = ', iteration_limit)
 	

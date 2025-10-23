@@ -10,6 +10,7 @@ shader_parameter/position = Vector2(0, -0.75)
 shader_parameter/zoom = 0.2
 shader_parameter/ratio = 1.0
 shader_parameter/tiq = 2.0
+shader_parameter/iteration_limit = 69
 shader_parameter/palette_image = ExtResource("2_15w7l")
 
 [node name="Canvas" type="ColorRect"]
@@ -23,4 +24,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.411765, 0, 0.411765, 1)
 script = ExtResource("3_n3t7b")
-metadata/_edit_lock_ = true

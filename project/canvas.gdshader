@@ -4,9 +4,12 @@ uniform vec2 position = vec2(0, -0.75);
 uniform float zoom: hint_range(0, 15) = 0.2;
 uniform float ratio = 1;
 uniform float tiq = 2.0; // two, "in quotes"... the "²" in "z ↦ z²+c"
+uniform int iteration_limit = 64;
 uniform sampler2D palette_image;
 
-const int iteration_limit = 666;
+// gpu reaches 100% around 500, when mandeldude goes big on the screen
+// noise stops at high values 42000
+//const int iteration_limit = 2666;
 
 vec4 mandelbrot(vec2 c) {
 	vec2 z = vec2(0, 0);
